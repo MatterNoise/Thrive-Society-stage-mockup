@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dv4i0knokwm4"]
+
+[ext_resource type="PackedScene" uid="uid://dgnghgooyotc6" path="res://Assets/Models/SocietyCenter.tscn" id="1_33eay"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33eay"]
+transparency = 1
+albedo_color = Color(0.44705883, 1, 0.09411765, 0.5176471)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auxli"]
+transparency = 1
+albedo_color = Color(0.44705883, 1, 0.09411765, 0.5176471)
+
+[node name="SocietyCenter" unique_id=1726684128 instance=ExtResource("1_33eay")]
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=215309650]
+disabled = true
+
+[node name="CSGBox3D" parent="." index="1" unique_id=995527356]
+material = SubResource("StandardMaterial3D_33eay")
+
+[node name="CSGBox3D2" parent="." index="2" unique_id=863817949]
+material = SubResource("StandardMaterial3D_auxli")

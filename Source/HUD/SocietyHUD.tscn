@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bd2siolkemo1s"]
+
+[ext_resource type="Script" uid="uid://bwlr82xryxo1q" path="res://Source/HUD/SocietyHUD.gd" id="1_jox03"]
+
+[node name="SocietyHUD" type="Control" unique_id=2146381316]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jox03")
+
+[node name="TopLeftBar" type="VBoxContainer" parent="." unique_id=1431645072]
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 135.0
+
+[node name="PopulationLabel" type="Label" parent="TopLeftBar" unique_id=2057548370]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "POPULATION_LABEL"
+
+[node name="BuildingResourcesLabel" type="Label" parent="TopLeftBar" unique_id=494908598]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "BUILDING_RESOURCES_LABEL"
+
+[node name="FoodResourcesLabel" type="Label" parent="TopLeftBar" unique_id=1594375231]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "FOOD_RESOURCES_LABEL"
+
+[node name="BottomCenterBar" type="HBoxContainer" parent="." unique_id=679977442]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BuildButton" type="Button" parent="BottomCenterBar" unique_id=70150824]
+layout_mode = 2
+text = "Build"
+
+[node name="ResearchButton" type="Button" parent="BottomCenterBar" unique_id=1037709950]
+layout_mode = 2
+text = "Research"
+
+[connection signal="button_up" from="BottomCenterBar/BuildButton" to="." method="_on_build_button_button_up"]

@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://clu2u4wfv46kh"]
+
+[ext_resource type="PackedScene" uid="uid://bd4aq7qeyj8bh" path="res://Source/StrategicCamera.tscn" id="1_amtb5"]
+[ext_resource type="Script" uid="uid://devho77kcfwr4" path="res://Source/SocietyStage.gd" id="1_wphlu"]
+[ext_resource type="Texture2D" uid="uid://brrf4y6pwp3x0" path="res://Assets/Textures/Terrain_01_Albedo.png" id="2_wphlu"]
+[ext_resource type="Texture2D" uid="uid://cqrdtskm8m52a" path="res://Assets/Textures/Terrain_01_Normals.png" id="3_4hg2c"]
+[ext_resource type="PackedScene" uid="uid://cqwcxfxy666lx" path="res://Source/HUD/HoverBuildingInfo.tscn" id="6_qh3m1"]
+[ext_resource type="PackedScene" uid="uid://bd2siolkemo1s" path="res://Source/HUD/SocietyHUD.tscn" id="6_yrfrv"]
+[ext_resource type="PackedScene" uid="uid://bawwn2ns3jqu" path="res://Source/HUD/BuildSelectWindow.tscn" id="7_qh3m1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eshwc"]
+size = Vector3(512, 0.1, 512)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7q5xm"]
+albedo_texture = ExtResource("2_wphlu")
+normal_enabled = true
+normal_texture = ExtResource("3_4hg2c")
+uv1_scale = Vector3(128, 128, 128)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_eshwc"]
+material = SubResource("StandardMaterial3D_7q5xm")
+size = Vector2(512, 512)
+
+[sub_resource type="SphereMesh" id="SphereMesh_eshwc"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wphlu"]
+
+[sub_resource type="Sky" id="Sky_amtb5"]
+sky_material = SubResource("ProceduralSkyMaterial_wphlu")
+
+[sub_resource type="Environment" id="Environment_eshwc"]
+background_mode = 2
+sky = SubResource("Sky_amtb5")
+ambient_light_color = Color(0.5211406, 0.52114064, 0.52114046, 1)
+
+[node name="SocietyStage" type="Node" unique_id=2109757551 node_paths=PackedStringArray("CurrentStrategicCamera", "PlaceStructureNode", "DebugRayInterset")]
+script = ExtResource("1_wphlu")
+CurrentStrategicCamera = NodePath("World/StrategicCamera")
+PlaceStructureNode = NodePath("PlaceStructureNode")
+DebugRayInterset = NodePath("DebugRayInterset")
+
+[node name="World" type="Node" parent="." unique_id=646329904]
+
+[node name="StrategicCamera" parent="World" unique_id=1249780793 instance=ExtResource("1_amtb5")]
+
+[node name="TemporalGround" type="StaticBody3D" parent="World" unique_id=203465241]
+
+[node name="TemporalGroundCollision" type="CollisionShape3D" parent="World/TemporalGround" unique_id=1313848154]
+shape = SubResource("BoxShape3D_eshwc")
+
+[node name="TemporalGroundVisual" type="MeshInstance3D" parent="World/TemporalGround" unique_id=2134171347]
+mesh = SubResource("PlaneMesh_eshwc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1398671071]
+transform = Transform3D(1, 0, 0, 0, 0.25881904, 0.96592575, 0, -0.96592575, 0.25881904, 0, 0, 0)
+shadow_enabled = true
+
+[node name="PlaceStructureNode" type="Node3D" parent="." unique_id=1742066004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="DebugRayInterset" type="MeshInstance3D" parent="." unique_id=420219117]
+mesh = SubResource("SphereMesh_eshwc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451819425]
+environment = SubResource("Environment_eshwc")
+
+[node name="SocietyHUD" parent="." unique_id=2146381316 instance=ExtResource("6_yrfrv")]
+
+[node name="HoverBuildingInfo" parent="." unique_id=145171975 node_paths=PackedStringArray("CurrentStrategicCamera") instance=ExtResource("6_qh3m1")]
+CurrentStrategicCamera = NodePath("../World/StrategicCamera")
+
+[node name="BuildSelectWindow" parent="." unique_id=596400122 instance=ExtResource("7_qh3m1")]
+visible = false
+
+[connection signal="OpenBuildSelectMenu" from="SocietyHUD" to="BuildSelectWindow" method="_on_open_build_select_menu"]
+[connection signal="OnBuildingSelected" from="BuildSelectWindow" to="." method="_on_building_selected"]

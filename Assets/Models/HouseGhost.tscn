@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cpknuf1kufmmq"]
+
+[ext_resource type="PackedScene" uid="uid://cqmmcuuxgh4gq" path="res://Assets/Models/House.tscn" id="1_ka2u8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ka2u8"]
+transparency = 1
+albedo_color = Color(0.44705883, 1, 0.09411765, 0.5176471)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd33i"]
+transparency = 1
+albedo_color = Color(0.44705883, 1, 0.09411765, 0.5176471)
+
+[node name="House" unique_id=1726684128 instance=ExtResource("1_ka2u8")]
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=678044112]
+disabled = true
+
+[node name="CSGBox3D" parent="." index="1" unique_id=1459171733]
+material = SubResource("StandardMaterial3D_ka2u8")
+
+[node name="CSGBox3D2" parent="." index="2" unique_id=1131204701]
+material = SubResource("StandardMaterial3D_wd33i")

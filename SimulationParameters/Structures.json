@@ -1,0 +1,24 @@
+{
+	"SocietyCenter": {
+		"Name": "SOCIETY_CENTER",
+		
+		"Building_Requirements" : {
+			"Wood" : 16,
+			"Stone" : 8
+		},
+		
+		"StandartModelPath": "res://Assets/Models/SocietyCenter.tscn",
+		"GhostModelPath": "res://Assets/Models/SocietyCenterGhost.tscn",
+	},
+	"House": {
+		"Name": "HOUSE",
+		
+		"Building_Requirements" : {
+			"Wood" : 5,
+			"Stone" : 2
+		},
+		
+		"StandartModelPath": "res://Assets/Models/House.tscn",
+		"GhostModelPath": "res://Assets/Models/HouseGhost.tscn",
+	},
+}

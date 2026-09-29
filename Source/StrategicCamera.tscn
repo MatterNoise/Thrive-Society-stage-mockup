@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bd4aq7qeyj8bh"]
+
+[ext_resource type="Script" uid="uid://de0cr4pj113lu" path="res://Source/StrategicCamera.gd" id="1_pwivx"]
+
+[node name="StrategicCamera" type="Camera3D" unique_id=1249780793]
+script = ExtResource("1_pwivx")

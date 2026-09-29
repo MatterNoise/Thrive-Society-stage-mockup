@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cqwcxfxy666lx"]
+
+[ext_resource type="Script" uid="uid://bw0wy4w40cjwj" path="res://Source/HUD/HoverBuildingInfo.gd" id="1_1y1rs"]
+
+[node name="HoverBuildingInfo" type="PanelContainer" unique_id=145171975 node_paths=PackedStringArray("BuildingNameLabel")]
+offset_right = 131.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(8, 8)
+mouse_behavior_recursive = 1
+script = ExtResource("1_1y1rs")
+BuildingNameLabel = NodePath("MarginContainer/BuildingNameLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2103604045]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="BuildingNameLabel" type="Label" parent="MarginContainer" unique_id=1964773127]
+layout_mode = 2
+text = "BUILDING_INFO"
