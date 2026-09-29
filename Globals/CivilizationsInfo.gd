@@ -22,6 +22,14 @@ func add_building_to_civilization_info(CivilizationName : String, CivilizationBu
 	CivilizationsInfoDictionary[CivilizationName].CivilizationBuildings.append(CivilizationBuilding)
 
 func civilization_can_afford_building(StructureName : String, BuildingOwner : String) -> bool:
+	if BuildingOwner == "":
+		return false
+	
+	if CivilizationsInfoDictionary.has(BuildingOwner) == false:
+		print("Unable to compare building resouce cost with non-existent civilization resources!.")
+		
+		return false
+	
 	var BuildingRequirements := StructuresDefinitions.get_structure_building_requirements(StructureName)
 	
 	for IBuildingRequirement in BuildingRequirements:
