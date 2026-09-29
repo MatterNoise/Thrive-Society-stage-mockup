@@ -19,17 +19,7 @@ offset_bottom = 135.0
 [node name="PopulationLabel" type="Label" parent="TopLeftBar" unique_id=2057548370]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "POPULATION_LABEL"
-
-[node name="BuildingResourcesLabel" type="Label" parent="TopLeftBar" unique_id=494908598]
-layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "BUILDING_RESOURCES_LABEL"
-
-[node name="FoodResourcesLabel" type="Label" parent="TopLeftBar" unique_id=1594375231]
-layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "FOOD_RESOURCES_LABEL"
+text = "SOCIETY_STAGE"
 
 [node name="BottomCenterBar" type="HBoxContainer" parent="." unique_id=679977442]
 layout_mode = 1
@@ -51,5 +41,18 @@ text = "Build"
 [node name="ResearchButton" type="Button" parent="BottomCenterBar" unique_id=1037709950]
 layout_mode = 2
 text = "Research"
+
+[node name="BottomLeftBar" type="HBoxContainer" parent="." unique_id=2053988864]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="ShowResourcesButton" type="Button" parent="BottomLeftBar" unique_id=835871732]
+layout_mode = 2
+text = "Resources"
 
 [connection signal="button_up" from="BottomCenterBar/BuildButton" to="." method="_on_build_button_button_up"]

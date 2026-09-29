@@ -12,6 +12,9 @@ func _process(_Delta: float) -> void:
 		return
 	
 	var DetectionRayResult := CurrentStrategicCamera.get_colliders_from_mouse_raycast()
+	if DetectionRayResult.is_empty():
+		return
+	
 	var DetectionRayCollider : Node3D = DetectionRayResult["collider"]
 	if DetectionRayCollider is IBuildingClass:
 		BuildingNameLabel.text = DetectionRayCollider.BuildingType
