@@ -1,8 +1,6 @@
 extends Node
 class_name PlayerController
 
-@export var PlayerCivilization : String = "PlayerCiv"
-
 @export var CurrentStrategicCamera : StrategicCamera
 @export var SocietyStageWorld : SocietyStageGame
 @export var PlaceStructureNode : Node3D
@@ -15,12 +13,12 @@ func _ready() -> void:
 	if SocietyStageWorld == null:
 		return
 	
-	CivilizationsInfo.declare_new_civilization_info(PlayerCivilization)
+	CivilizationsInfo.declare_new_civilization_info(GeneralGameData.PlayerCivilizationName)
 	
-	CivilizationsInfo.CivilizationsInfoDictionary[PlayerCivilization].set_resource_amount_to_civ("Wood", 100)
-	CivilizationsInfo.CivilizationsInfoDictionary[PlayerCivilization].set_resource_amount_to_civ("Stone", 100)
+	CivilizationsInfo.CivilizationsInfoDictionary[GeneralGameData.PlayerCivilizationName].set_resource_amount_to_civ("Wood", 100)
+	CivilizationsInfo.CivilizationsInfoDictionary[GeneralGameData.PlayerCivilizationName].set_resource_amount_to_civ("Stone", 100)
 	
-	SocietyStageWorld.create_new_building("SOCIETY_CENTER", Vector3.ZERO, PlayerCivilization)
+	SocietyStageWorld.create_new_building("SOCIETY_CENTER", Vector3.ZERO, GeneralGameData.PlayerCivilizationName, true)
 
 func _process(_Delta : float) -> void:
 	if CurrentStrategicCamera == null or SocietyStageWorld == null:
@@ -40,7 +38,7 @@ func process_structure_placement() -> void:
 		return
 	
 	if Input.is_action_just_pressed("Mouse_Left_Click"):
-		SocietyStageWorld.create_new_building(InBuildStructureName, CurrentStrategicCamera.WorldMousePosition, PlayerCivilization)
+		SocietyStageWorld.create_new_building(InBuildStructureName, CurrentStrategicCamera.WorldMousePosition, GeneralGameData.PlayerCivilizationName)
 		
 		cancel_building_construction()
 	elif Input.is_action_just_pressed("Mouse_Right_Click"):

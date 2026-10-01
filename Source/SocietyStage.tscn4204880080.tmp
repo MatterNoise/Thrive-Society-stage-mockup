@@ -74,11 +74,11 @@ environment = SubResource("Environment_eshwc")
 
 [node name="SocietyHUD" parent="." unique_id=2146381316 instance=ExtResource("6_yrfrv")]
 
-[node name="BuildSelectWindow" parent="." unique_id=596400122 instance=ExtResource("7_qh3m1")]
-visible = false
-
 [node name="HoverBuildingInfo" parent="." unique_id=145171975 node_paths=PackedStringArray("CurrentStrategicCamera") instance=ExtResource("6_qh3m1")]
 CurrentStrategicCamera = NodePath("../World/StrategicCamera")
+
+[node name="BuildSelectWindow" parent="." unique_id=596400122 instance=ExtResource("7_qh3m1")]
+visible = false
 
 [connection signal="OpenBuildSelectMenu" from="SocietyHUD" to="BuildSelectWindow" method="_on_open_build_select_menu"]
 [connection signal="OnBuildingSelected" from="BuildSelectWindow" to="PlayerController" method="_on_building_selected"]

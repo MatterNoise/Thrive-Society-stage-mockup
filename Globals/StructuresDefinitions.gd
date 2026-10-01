@@ -23,7 +23,7 @@ func _enter_tree() -> void:
 		
 		# Fetch the Building_Requirements elements of the JSON
 		for IBuildingRequirement in StructuresDictionaryItem["Building_Requirements"]:
-			if IBuildingRequirement == "Wood" or IBuildingRequirement == "Stone":
+			if ResourcesDefinitions.is_resource_existent(IBuildingRequirement) == false:
 				continue
 			
 			NewStructureDefinition.StructureBuildingRequirements[IBuildingRequirement] = StructuresDictionaryItem["Building_Requirements"][IBuildingRequirement]

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 ResourcesDefinitions="*uid://biuj1mxercbct"
 StructuresDefinitions="*uid://b08inlsbs36j2"
+GeneralGameData="*uid://dokmob38dnl1u"
 CivilizationsInfo="*uid://bhvshkxlb3j4i"
 
 [display]

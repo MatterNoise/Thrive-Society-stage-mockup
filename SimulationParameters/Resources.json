@@ -1,11 +1,11 @@
 {
 	"Wood" : {
-		"Name": "WOOD",
+		"Name": "Wood",
 		
 		"Icon": "res://Assets/Textures/GUI/Wood.svg"
 	},
 	"Stone" : {
-		"Name": "STONE",
+		"Name": "Stone",
 		
 		"Icon": "res://Assets/Textures/GUI/Iron.svg"
 	}

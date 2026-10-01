@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://ca2puic8mpuc8"]
 
 [ext_resource type="Script" uid="uid://cm26vdibrn3i7" path="res://Source/HUD/BuildingSelectItem.gd" id="1_6c0l5"]
+[ext_resource type="PackedScene" uid="uid://dbpn42ii1pg4o" path="res://Source/HUD/ResourceAmountBar.tscn" id="2_l4f2w"]
 
 [node name="BuildingSelectItem" type="HBoxContainer" unique_id=1727422114 node_paths=PackedStringArray("StructureNameLabelNode", "StructureRequirements", "BuildButtonNode")]
-custom_minimum_size = Vector2(420, 120)
-custom_maximum_size = Vector2(420, 120)
+custom_minimum_size = Vector2(420, 160)
+custom_maximum_size = Vector2(420, 160)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_6c0l5")
+ResourceAmountBarScene = ExtResource("2_l4f2w")
 StructureNameLabelNode = NodePath("StructureInfoContainer/VBoxContainer/StructureNameLabel")
 StructureRequirements = NodePath("StructureInfoContainer/VBoxContainer/StructureRequirements")
 BuildButtonNode = NodePath("ConfirmButtonContainer/BuildButton")
@@ -26,6 +28,10 @@ layout_mode = 2
 [node name="StructureNameLabel" type="Label" parent="StructureInfoContainer/VBoxContainer" unique_id=1249285940]
 layout_mode = 2
 text = "STRUCTURE_NAME"
+
+[node name="RequiredResourcesLabel" type="Label" parent="StructureInfoContainer/VBoxContainer" unique_id=365347776]
+layout_mode = 2
+text = "REQUIRED_RESOURCES"
 
 [node name="StructureRequirements" type="GridContainer" parent="StructureInfoContainer/VBoxContainer" unique_id=912646200]
 layout_mode = 2
