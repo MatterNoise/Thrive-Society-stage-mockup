@@ -18,6 +18,6 @@ func create_new_building(StructureName : String, AtPosition : Vector3, BuildingO
 		for ISpentResource in BuildinRequirements:
 			CivilizationsInfo.CivilizationsInfoDictionary[BuildingOwner].add_resource_amount_to_civ(ISpentResource, -BuildinRequirements[ISpentResource])
 	
-	print(CivilizationsInfo.CivilizationsInfoDictionary[BuildingOwner].CivilizationResources)
+	#print(CivilizationsInfo.CivilizationsInfoDictionary[BuildingOwner].CivilizationResources)
 	
 	return StructureInstance

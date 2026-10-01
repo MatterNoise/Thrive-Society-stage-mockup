@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+ResourcesDefinitions="*uid://biuj1mxercbct"
 StructuresDefinitions="*uid://b08inlsbs36j2"
 CivilizationsInfo="*uid://bhvshkxlb3j4i"
 

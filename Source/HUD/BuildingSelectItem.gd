@@ -4,6 +4,7 @@ class_name BuildingSelectItem
 signal ForwardBuildingItemSelected(SelectedStructureDefsKey : String)
 
 @export var StructureNameLabelNode : Label
+@export var StructureRequirements : GridContainer
 @export var BuildButtonNode : Button
 
 var AssignedStructureDefsKey : String
@@ -23,13 +24,17 @@ func _process(_Delta : float) -> void:
 		BuildButtonNode.disabled = true
 
 func update_building_description() -> void:
+	if StructureNameLabelNode == null or StructureRequirements == null:
+		return
+	
 	if AssignedStructureDefsKey == "":
 		return
 	
-	if StructureNameLabelNode == null:
-		return
-	
 	StructureNameLabelNode.text = StructuresDefinitions.StructureDefinitionsDictionary[AssignedStructureDefsKey].StructureName
+	
+	var BuildingRequirements := StructuresDefinitions.get_structure_building_requirements(AssignedStructureDefsKey)
+	for IBuildingRequirement in BuildingRequirements:
+		print(IBuildingRequirement)
 
 func _on_build_button_button_up() -> void:
 	ForwardBuildingItemSelected.emit(AssignedStructureDefsKey)

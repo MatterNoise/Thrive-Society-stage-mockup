@@ -23,6 +23,9 @@ func _enter_tree() -> void:
 		
 		# Fetch the Building_Requirements elements of the JSON
 		for IBuildingRequirement in StructuresDictionaryItem["Building_Requirements"]:
+			if IBuildingRequirement == "Wood" or IBuildingRequirement == "Stone":
+				continue
+			
 			NewStructureDefinition.StructureBuildingRequirements[IBuildingRequirement] = StructuresDictionaryItem["Building_Requirements"][IBuildingRequirement]
 		
 		NewStructureDefinition.StructureStandartModel = load(StructuresDictionaryItem["StandartModelPath"])
@@ -31,10 +34,16 @@ func _enter_tree() -> void:
 		var DefinitionsDictionaryKey : String = StructuresDictionaryItem["Name"]
 		StructureDefinitionsDictionary[DefinitionsDictionaryKey] = NewStructureDefinition
 
-func get_structure_definition_key(DefinitionKeyNumber : int) -> String:
-	var StructureDefinitionsKey := StructureDefinitionsDictionary.keys()
+func is_structure_existent(ResourceName : String) -> bool:
+	if StructureDefinitionsDictionary.has(ResourceName) == true:
+		return true
 	
-	return StructureDefinitionsKey[DefinitionKeyNumber]
+	return false
+
+func get_structure_definition_key(DefinitionKeyNumber : int) -> String:
+	var StructureDefinitionsKeys := StructureDefinitionsDictionary.keys()
+	
+	return StructureDefinitionsKeys[DefinitionKeyNumber]
 
 func get_structure_building_requirements(StructureName : String) -> Dictionary[String, int]:
 	return StructureDefinitionsDictionary[StructureName].StructureBuildingRequirements

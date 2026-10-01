@@ -1,0 +1,12 @@
+{
+	"Wood" : {
+		"Name": "WOOD",
+		
+		"Icon": "res://Assets/Textures/GUI/Wood.svg"
+	},
+	"Stone" : {
+		"Name": "STONE",
+		
+		"Icon": "res://Assets/Textures/GUI/Iron.svg"
+	}
+}

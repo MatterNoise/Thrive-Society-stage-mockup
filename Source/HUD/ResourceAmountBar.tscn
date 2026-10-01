@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dbpn42ii1pg4o"]
+
+[ext_resource type="Texture2D" uid="uid://twyne7cq17ux" path="res://Assets/Textures/GUI/Luciferase.svg" id="1_fmr5v"]
+[ext_resource type="Script" uid="uid://cgndyxwislgt2" path="res://Source/HUD/ResourceAmountBar.gd" id="1_i5h7m"]
+
+[node name="ResourceAmountBar" type="HBoxContainer" unique_id=349846327 node_paths=PackedStringArray("ResourceTextureNode", "ResourceLabelNode")]
+offset_right = 118.0
+offset_bottom = 32.0
+script = ExtResource("1_i5h7m")
+ResourceTextureNode = NodePath("ResourceTexture")
+ResourceLabelNode = NodePath("ResourceLabel")
+ResourceIcon = ExtResource("1_fmr5v")
+ResourceName = "RESOURCE"
+
+[node name="ResourceTexture" type="TextureRect" parent="." unique_id=1360379273]
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_fmr5v")
+expand_mode = 2
+
+[node name="ResourceLabel" type="Label" parent="." unique_id=1475819997]
+layout_mode = 2
+text = "RESOURCE"
