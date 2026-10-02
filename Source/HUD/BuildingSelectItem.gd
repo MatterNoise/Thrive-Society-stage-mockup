@@ -43,6 +43,7 @@ func update_building_description() -> void:
 		
 		ResourceAmountBarInstance.AssignedResourceKey = IBuildingRequirement
 		ResourceAmountBarInstance.ResourceIcon = ResourcesDefinitions.get_resource_icon(IBuildingRequirement)
+		ResourceAmountBarInstance.ShowResourcesRequired = true
 		
 		var BuildingResourceRequired : int = StructuresDefinitions.get_structure_building_requirements(AssignedStructureDefsKey)[IBuildingRequirement]
 		ResourceAmountBarInstance.ResourceRequiredLabelNode.text = str(BuildingResourceRequired)

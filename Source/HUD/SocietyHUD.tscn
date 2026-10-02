@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bd2siolkemo1s"]
 
 [ext_resource type="Script" uid="uid://bwlr82xryxo1q" path="res://Source/HUD/SocietyHUD.gd" id="1_jox03"]
+[ext_resource type="PackedScene" uid="uid://de4wnyd21p221" path="res://Source/HUD/ResourcesVisualizerBar.tscn" id="2_1ugw7"]
 
 [node name="SocietyHUD" type="Control" unique_id=2146381316]
 layout_mode = 3
@@ -20,6 +21,15 @@ offset_bottom = 135.0
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "SOCIETY_STAGE"
+
+[node name="ResourcesVisualizerBar" parent="." unique_id=1496018489 instance=ExtResource("2_1ugw7")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_right = 0.0
+grow_horizontal = 0
 
 [node name="BottomCenterBar" type="HBoxContainer" parent="." unique_id=679977442]
 layout_mode = 1
@@ -41,18 +51,5 @@ text = "Build"
 [node name="ResearchButton" type="Button" parent="BottomCenterBar" unique_id=1037709950]
 layout_mode = 2
 text = "Research"
-
-[node name="BottomLeftBar" type="HBoxContainer" parent="." unique_id=2053988864]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
-grow_vertical = 0
-
-[node name="ShowResourcesButton" type="Button" parent="BottomLeftBar" unique_id=835871732]
-layout_mode = 2
-text = "Resources"
 
 [connection signal="button_up" from="BottomCenterBar/BuildButton" to="." method="_on_build_button_button_up"]

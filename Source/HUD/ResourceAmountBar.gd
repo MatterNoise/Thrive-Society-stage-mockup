@@ -3,11 +3,14 @@ class_name ResourceAmountBar
 
 @export var ResourceTextureNode : TextureRect
 @export var ResourceRequiredLabelNode : Label
+@export var BraquetStartLabelNode : Label
 @export var ResourceTotalStoredLabelNode : Label
-
-var AssignedResourceKey : String = "Wood"
+@export var BraquetEndLabelNode : Label
 
 var ResourceIcon : CompressedTexture2D = preload("res://Assets/Textures/GUI/Luciferase.svg")
+
+var AssignedResourceKey : String = "Wood"
+var ShowResourcesRequired : bool
 
 func _process(_Delta : float) -> void:
 	if AssignedResourceKey == "":
@@ -20,8 +23,18 @@ func _process(_Delta : float) -> void:
 	ResourceTotalStoredLabelNode.text = str(TotalResourceStored)
 
 func update_descriptions() -> void:
-	if ResourceTextureNode == null or ResourceRequiredLabelNode == null:
+	if ResourceTextureNode == null or ResourceRequiredLabelNode == null or\
+	   BraquetStartLabelNode == null or BraquetEndLabelNode == null:
 		return
 	
 	ResourceTextureNode.texture = ResourceIcon
 	ResourceTextureNode.tooltip_text = AssignedResourceKey
+	
+	if ShowResourcesRequired == true:
+		BraquetStartLabelNode.show()
+		ResourceRequiredLabelNode.show()
+		BraquetEndLabelNode.show()
+	else:
+		BraquetStartLabelNode.hide()
+		ResourceRequiredLabelNode.hide()
+		BraquetEndLabelNode.hide()
