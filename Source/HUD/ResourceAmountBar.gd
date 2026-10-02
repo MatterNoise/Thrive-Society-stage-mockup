@@ -20,6 +20,9 @@ func _process(_Delta : float) -> void:
 		return
 	
 	var TotalResourceStored : int = CivilizationsInfo.CivilizationsInfoDictionary[GeneralGameData.PlayerCivilizationName].get_civilization_resource(AssignedResourceKey)
+	if TotalResourceStored < 0:
+		return
+	
 	ResourceTotalStoredLabelNode.text = str(TotalResourceStored)
 
 func update_descriptions() -> void:

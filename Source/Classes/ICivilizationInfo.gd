@@ -16,6 +16,8 @@ func add_resource_amount_to_civ(ResourceName : String, ResourceCuantity : int = 
 
 func get_civilization_resource(ResourceName : String) -> int:
 	if CivilizationResources.has(ResourceName) == false:
-		printerr("Mencioned resource is not declared!.")
+		#printerr("Mencioned resource is not declared!.")
+		
+		return 0
 	
 	return CivilizationResources[ResourceName]

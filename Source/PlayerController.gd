@@ -17,6 +17,7 @@ func _ready() -> void:
 	
 	CivilizationsInfo.CivilizationsInfoDictionary[GeneralGameData.PlayerCivilizationName].set_resource_amount_to_civ("Wood", 100)
 	CivilizationsInfo.CivilizationsInfoDictionary[GeneralGameData.PlayerCivilizationName].set_resource_amount_to_civ("Stone", 100)
+	#CivilizationsInfo.CivilizationsInfoDictionary[GeneralGameData.PlayerCivilizationName].set_resource_amount_to_civ("Iron", 0)
 	
 	SocietyStageWorld.create_new_building("SOCIETY_CENTER", Vector3.ZERO, GeneralGameData.PlayerCivilizationName, true)
 

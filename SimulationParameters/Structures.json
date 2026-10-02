@@ -21,4 +21,5 @@
 		"StandartModelPath": "res://Assets/Models/House.tscn",
 		"GhostModelPath": "res://Assets/Models/HouseGhost.tscn",
 	},
+	
 }

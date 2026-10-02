@@ -24,6 +24,8 @@ func _enter_tree() -> void:
 		# Fetch the Building_Requirements elements of the JSON
 		for IBuildingRequirement in StructuresDictionaryItem["Building_Requirements"]:
 			if ResourcesDefinitions.is_resource_existent(IBuildingRequirement) == false:
+				printerr("Non-existent resource '%s' was found in the requirements, skipping it." % str(IBuildingRequirement))
+				
 				continue
 			
 			NewStructureDefinition.StructureBuildingRequirements[IBuildingRequirement] = StructuresDictionaryItem["Building_Requirements"][IBuildingRequirement]
