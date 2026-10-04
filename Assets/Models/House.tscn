@@ -9,6 +9,8 @@ size = Vector3(5, 5, 5)
 albedo_color = Color(0.44546205, 0.26593012, 0.09556862, 1)
 
 [node name="House" type="StaticBody3D" unique_id=487588677]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_mww7t")
 metadata/_custom_type_script = "uid://21ju6x2a3o7w"
 
@@ -16,11 +18,13 @@ metadata/_custom_type_script = "uid://21ju6x2a3o7w"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_o2cw6")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1459171733]
+[node name="Model" type="Node3D" parent="." unique_id=161892078]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Model" unique_id=1459171733]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 size = Vector3(5, 5, 5)
 material = SubResource("StandardMaterial3D_o2cw6")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1131204701]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Model" unique_id=1131204701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2.5)
 size = Vector3(2, 3, 0.2)

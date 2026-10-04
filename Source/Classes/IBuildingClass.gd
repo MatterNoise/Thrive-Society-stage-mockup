@@ -6,3 +6,6 @@ var BuildingType : String
 
 func _exit_tree() -> void:
 	CivilizationsInfo.delete_building_to_civilization_info(BuildingOwner, self)
+
+func _process(_Delta : float) -> void:
+	pass

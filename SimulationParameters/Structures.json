@@ -3,9 +3,10 @@
 		"Name": "SOCIETY_CENTER",
 		
 		"Building_Requirements" : {
-			"Wood" : 16,
-			"Stone" : 8
+			"Wood" : 64,
+			"Stone" : 48
 		},
+		
 		
 		"StandartModelPath": "res://Assets/Models/SocietyCenter.tscn",
 		"GhostModelPath": "res://Assets/Models/SocietyCenterGhost.tscn",
@@ -14,12 +15,24 @@
 		"Name": "HOUSE",
 		
 		"Building_Requirements" : {
-			"Wood" : 5,
-			"Stone" : 2
+			"Wood" : 8,
+			"Stone" : 6
 		},
+		
 		
 		"StandartModelPath": "res://Assets/Models/House.tscn",
 		"GhostModelPath": "res://Assets/Models/HouseGhost.tscn",
 	},
-	
+	"RecolectorsLodge": {
+		"Name": "RECOLECTORS_LODGE",
+		
+		"Building_Requirements" : {
+			"Wood" : 4,
+			"Stone" : 2
+		},
+		
+		
+		"StandartModelPath": "res://Assets/Models/House.tscn",
+		"GhostModelPath": "res://Assets/Models/HouseGhost.tscn",
+	}
 }

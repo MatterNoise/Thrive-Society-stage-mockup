@@ -5,8 +5,10 @@
 [ext_resource type="Script" uid="uid://bysmmi81ybd87" path="res://Source/PlayerController.gd" id="2_m3l6s"]
 [ext_resource type="Texture2D" uid="uid://brrf4y6pwp3x0" path="res://Assets/Textures/Terrain_01_Albedo.png" id="2_wphlu"]
 [ext_resource type="Texture2D" uid="uid://cqrdtskm8m52a" path="res://Assets/Textures/Terrain_01_Normals.png" id="3_4hg2c"]
+[ext_resource type="PackedScene" uid="uid://cukxq6eomn0il" path="res://Source/MOBs/PersonCreature.tscn" id="6_nunsx"]
 [ext_resource type="PackedScene" uid="uid://cqwcxfxy666lx" path="res://Source/HUD/HoverBuildingInfo.tscn" id="6_qh3m1"]
 [ext_resource type="PackedScene" uid="uid://bd2siolkemo1s" path="res://Source/HUD/SocietyHUD.tscn" id="6_yrfrv"]
+[ext_resource type="PackedScene" uid="uid://bb7yb6mwb6ddx" path="res://Source/PersonSelectionArea.tscn" id="7_o6r48"]
 [ext_resource type="PackedScene" uid="uid://bawwn2ns3jqu" path="res://Source/HUD/BuildSelectWindow.tscn" id="7_qh3m1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eshwc"]
@@ -22,10 +24,6 @@ uv1_scale = Vector3(128, 128, 128)
 material = SubResource("StandardMaterial3D_7q5xm")
 size = Vector2(512, 512)
 
-[sub_resource type="SphereMesh" id="SphereMesh_eshwc"]
-radius = 1.0
-height = 2.0
-
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wphlu"]
 
 [sub_resource type="Sky" id="Sky_amtb5"]
@@ -39,12 +37,12 @@ ambient_light_color = Color(0.5211406, 0.52114064, 0.52114046, 1)
 [node name="SocietyStage" type="Node" unique_id=2109757551]
 script = ExtResource("1_wphlu")
 
-[node name="PlayerController" type="Node" parent="." unique_id=1854890749 node_paths=PackedStringArray("CurrentStrategicCamera", "SocietyStageWorld", "PlaceStructureNode", "DebugRayInterset")]
+[node name="PlayerController" type="Node" parent="." unique_id=1854890749 node_paths=PackedStringArray("CurrentStrategicCamera", "SocietyStageWorld", "PlaceStructureNode", "PersonSelectionAreaNode")]
 script = ExtResource("2_m3l6s")
 CurrentStrategicCamera = NodePath("../World/StrategicCamera")
 SocietyStageWorld = NodePath("..")
 PlaceStructureNode = NodePath("../PlaceStructureNode")
-DebugRayInterset = NodePath("../DebugRayInterset")
+PersonSelectionAreaNode = NodePath("../PersonSelectionArea")
 metadata/_custom_type_script = "uid://bysmmi81ybd87"
 
 [node name="World" type="Node" parent="." unique_id=646329904]
@@ -52,6 +50,8 @@ metadata/_custom_type_script = "uid://bysmmi81ybd87"
 [node name="StrategicCamera" parent="World" unique_id=1249780793 instance=ExtResource("1_amtb5")]
 
 [node name="TemporalGround" type="StaticBody3D" parent="World" unique_id=203465241]
+collision_layer = 3
+collision_mask = 3
 
 [node name="TemporalGroundCollision" type="CollisionShape3D" parent="World/TemporalGround" unique_id=1313848154]
 shape = SubResource("BoxShape3D_eshwc")
@@ -63,11 +63,13 @@ mesh = SubResource("PlaneMesh_eshwc")
 transform = Transform3D(1, 0, 0, 0, 0.25881904, 0.96592575, 0, -0.96592575, 0.25881904, 0, 0, 0)
 shadow_enabled = true
 
+[node name="Creature" parent="World" unique_id=352763313 instance=ExtResource("6_nunsx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.202312)
+
 [node name="PlaceStructureNode" type="Node3D" parent="." unique_id=1742066004]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
-[node name="DebugRayInterset" type="MeshInstance3D" parent="." unique_id=420219117]
-mesh = SubResource("SphereMesh_eshwc")
+[node name="PersonSelectionArea" parent="." unique_id=357050394 instance=ExtResource("7_o6r48")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451819425]
 environment = SubResource("Environment_eshwc")

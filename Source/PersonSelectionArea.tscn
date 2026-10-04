@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bb7yb6mwb6ddx"]
+
+[ext_resource type="Script" uid="uid://bvjswbsqkkku5" path="res://Source/PersonSelectionArea.gd" id="1_ckqdo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_eshwc"]
+radius = 1.0
+
+[node name="PersonSelectionArea" type="Area3D" unique_id=357050394]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_ckqdo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1832484382]
+shape = SubResource("SphereShape3D_eshwc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

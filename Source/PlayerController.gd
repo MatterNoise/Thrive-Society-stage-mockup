@@ -5,7 +5,9 @@ class_name PlayerController
 @export var SocietyStageWorld : SocietyStageGame
 @export var PlaceStructureNode : Node3D
 
-@export var DebugRayInterset : MeshInstance3D
+@export var PersonSelectionAreaNode : PersonSelectionArea
+
+var WorldMousePosition : Vector3
 
 var InBuildStructureName : String
 
@@ -15,8 +17,8 @@ func _ready() -> void:
 	
 	CivilizationsInfo.declare_new_civilization_info(GeneralGameData.PlayerCivilizationName)
 	
-	CivilizationsInfo.CivilizationsInfoDictionary[GeneralGameData.PlayerCivilizationName].set_resource_amount_to_civ("Wood", 100)
-	CivilizationsInfo.CivilizationsInfoDictionary[GeneralGameData.PlayerCivilizationName].set_resource_amount_to_civ("Stone", 100)
+	CivilizationsInfo.CivilizationsInfoDictionary[GeneralGameData.PlayerCivilizationName].set_resource_amount_to_civ("Wood", 12)
+	CivilizationsInfo.CivilizationsInfoDictionary[GeneralGameData.PlayerCivilizationName].set_resource_amount_to_civ("Stone", 12)
 	#CivilizationsInfo.CivilizationsInfoDictionary[GeneralGameData.PlayerCivilizationName].set_resource_amount_to_civ("Iron", 0)
 	
 	SocietyStageWorld.create_new_building("SOCIETY_CENTER", Vector3.ZERO, GeneralGameData.PlayerCivilizationName, true)
@@ -25,21 +27,36 @@ func _process(_Delta : float) -> void:
 	if CurrentStrategicCamera == null or SocietyStageWorld == null:
 		return
 	
+	process_mouse_inputs()
+	
+	process_person_selection_area()
+	
 	process_structure_ghost()
 	process_structure_placement()
+
+func process_mouse_inputs() -> void:
+	var DetectionRayResults := CurrentStrategicCamera.get_colliders_from_mouse_raycast(0b0001)
+	if DetectionRayResults.is_empty() != true:
+		WorldMousePosition = DetectionRayResults["position"]
+
+func process_person_selection_area() -> void:
+	if PersonSelectionAreaNode == null:
+		return
+	
+	PersonSelectionAreaNode.position = WorldMousePosition
 
 func process_structure_ghost() -> void:
 	if PlaceStructureNode == null:
 		return
 	
-	PlaceStructureNode.position = CurrentStrategicCamera.WorldMousePosition
+	PlaceStructureNode.position = WorldMousePosition
 
 func process_structure_placement() -> void:
 	if InBuildStructureName == "":
 		return
 	
 	if Input.is_action_just_pressed("Mouse_Left_Click"):
-		SocietyStageWorld.create_new_building(InBuildStructureName, CurrentStrategicCamera.WorldMousePosition, GeneralGameData.PlayerCivilizationName)
+		SocietyStageWorld.create_new_building(InBuildStructureName, WorldMousePosition, GeneralGameData.PlayerCivilizationName)
 		
 		cancel_building_construction()
 	elif Input.is_action_just_pressed("Mouse_Right_Click"):

@@ -1,6 +1,8 @@
 extends Node
 class_name SocietyStageGame
 
+
+
 func create_new_building(StructureName : String, AtPosition : Vector3, BuildingOwner : String, ResourceCostFree : bool = false) -> IBuildingClass:
 	var StructureScene : PackedScene = StructuresDefinitions.get_structure_standart_model(StructureName)
 	var StructureInstance : IBuildingClass = StructureScene.instantiate()

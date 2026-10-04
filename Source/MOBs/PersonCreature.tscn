@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cukxq6eomn0il"]
+
+[ext_resource type="Script" uid="uid://bsjes8xynvl3m" path="res://Source/MOBs/PersonCreature.gd" id="1_uarqb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nunsx"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80cv4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7eq88"]
+
+[node name="PersonCreature" type="CharacterBody3D" unique_id=308698978]
+collision_layer = 10
+collision_mask = 10
+script = ExtResource("1_uarqb")
+metadata/_custom_type_script = "uid://bsjes8xynvl3m"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=361606837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_nunsx")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=973262259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+size = Vector3(1, 0.5, 1)
+material = SubResource("StandardMaterial3D_80cv4")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=473332398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(2, 2, 2)
+
+[node name="PersonSelectionCylinder" type="CSGCylinder3D" parent="." unique_id=276221423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
+visible = false
+radius = 1.6
+height = 1.1
+sides = 16
+material = SubResource("StandardMaterial3D_7eq88")

@@ -30,6 +30,8 @@ func _enter_tree() -> void:
 			
 			NewStructureDefinition.StructureBuildingRequirements[IBuildingRequirement] = StructuresDictionaryItem["Building_Requirements"][IBuildingRequirement]
 		
+		
+		
 		NewStructureDefinition.StructureStandartModel = load(StructuresDictionaryItem["StandartModelPath"])
 		NewStructureDefinition.StructureGhostModel = load(StructuresDictionaryItem["GhostModelPath"])
 		
